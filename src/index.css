@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #060913;
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+/* Animasi Background Ambient */
+@keyframes floatSlow {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(25px, -20px) scale(1.08); }
+}
+
+.orb-animate-1 { animation: floatSlow 10s ease-in-out infinite; }
+.orb-animate-2 { animation: floatSlow 14s ease-in-out infinite reverse; }
+
+/* Auto Infinite Marquee Card */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Glassmorphism Card Modern */
+.glass-card-interactive {
+  background: rgba(18, 25, 44, 0.5);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card-interactive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-card-interactive:hover {
+  background: rgba(24, 34, 60, 0.75);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -15px rgba(14, 165, 233, 0.25);
+}
+
+.glass-card-interactive:hover::before {
+  opacity: 1;
+}
+
+.glass-panel-deep {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8);
+}
+
+.btn-neon {
+  background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+  box-shadow: 0 10px 25px -6px rgba(14, 165, 233, 0.45);
+  transition: all 0.25s ease;
+}
+
+.btn-neon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -4px rgba(14, 165, 233, 0.65);
+}
+
+.btn-neon:disabled {
+  opacity: 0.35;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Animasi Maskot Loading */
+@keyframes cuteBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(6deg); }
+}
+
+.animate-cute-bounce {
+  animation: cuteBounce 1.2s ease-in-out infinite;
+}
+
+/* Efek Grid Cyber Background */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Animasi Floating Card Berirama */
+@keyframes floatY1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.5deg); }
+}
+
+@keyframes floatY2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-1.5deg); }
+}
+
+.animate-float-1 {
+  animation: floatY1 5s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatY2 6s ease-in-out infinite;
+}
+
+/* Glow Border Shimmer */
+@keyframes borderShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.shimmer-badge {
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.2), rgba(129, 140, 248, 0.4), rgba(56, 189, 248, 0.2));
+  background-size: 200% 200%;
+  animation: borderShimmer 4s ease infinite;
+}
